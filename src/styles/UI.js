@@ -25,7 +25,7 @@ export const Nav = styled(AppBar)`
 `
 
 export const AppFooter = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -39,4 +39,17 @@ export const AppFooter = styled.div`
     color: var(--white);
     text-decoration: none;
   }
+`
+
+export const DataContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  text-align: center;
+`
+
+export const Chart = styled.div`
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
 `

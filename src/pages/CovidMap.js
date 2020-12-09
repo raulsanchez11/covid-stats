@@ -1,9 +1,11 @@
 import { MainLayout } from 'layouts/'
+import { CountrySelector, CountryInfo } from 'components/'
 
 export function CovidMap(props) {
   return (
     <MainLayout>
-      <h1>CovidMap</h1>
+      <CountrySelector />
+      <CountryInfo />
     </MainLayout>
   )
 }
