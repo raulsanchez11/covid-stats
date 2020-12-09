@@ -1,7 +1,14 @@
+import { Router } from '@reach/router'
+
+import { Login, Home } from 'pages/'
+
 function App() {
   return (
-    <div className="App">test</div>
-  );
+    <Router>
+      <Home path="/" />
+      <Login path="/login" />
+    </Router>
+  )
 }
 
-export default App;
+export default App
