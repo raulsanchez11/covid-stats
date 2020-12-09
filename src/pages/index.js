@@ -1,2 +1,2 @@
-export * from './Home'
-export * from './Login'
+export * from './CovidMap'
+export * from './Subscribe'
