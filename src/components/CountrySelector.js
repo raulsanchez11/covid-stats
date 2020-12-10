@@ -1,21 +1,34 @@
-import { Select, MenuItem, FormHelperText } from '@material-ui/core'
+import {
+  Select,
+  MenuItem,
+  FormHelperText,
+  CircularProgress,
+} from '@material-ui/core'
+
+import { useCountries } from 'hooks/'
 
 export function CountrySelector(props) {
+  const { country, onSelectCountry } = props
+  const { countries, loading } = useCountries()
+
+  if (loading) {
+    return <CircularProgress />
+  }
+
   return (
     <>
-      <Select value="mx">
-        <MenuItem value="mx">
-          <img src="https://flagcdn.com/16x12/mx.png" alt="MX" />
-        </MenuItem>
-        <MenuItem value="eu">
-          <img src="https://flagcdn.com/16x12/eu.png" alt="MX" />
-        </MenuItem>
-        <MenuItem value="bb">
-          <img src="https://flagcdn.com/16x12/bb.png" alt="MX" />
-        </MenuItem>
-        <MenuItem value="mn">
-          <img src="https://flagcdn.com/16x12/mn.png" alt="MX" />
-        </MenuItem>
+      <Select value={country} onChange={(e) => onSelectCountry(e.target.value)}>
+        {countries.map((c) => (
+          <MenuItem value={c.Slug} key={c.ISO2}>
+            <img
+              src={`https://flagcdn.com/16x12/${c.ISO2.toLowerCase()}.png`}
+              alt={c.Country}
+              loading="lazy"
+            />
+            &nbsp;
+            {c.Country}
+          </MenuItem>
+        ))}
       </Select>
       <FormHelperText>Select a country</FormHelperText>
     </>
